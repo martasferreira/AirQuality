@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot - CacheStatistics </title>
+    <meta charset="utf-8" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+
+</head>
+<body>
+<div class="container">
+    <a href="airQuality"><input type="button" value="Back to App" style="float: right;"></a>
+    <h1 style="padding-top:50px" id="titulo"><strong>Cache Statistics:</strong></h1>
+    <div class="row col-md-10 " style="align-content: center">
+        <p>Requests:<span th:text="${requests}" id="requests"></span></p>
+        <p>Hits:<span th:text="${hits}" id="hits"></span></p>
+        <p>Misses:<span th:text="${misses}" id="misses"></span></p>
+    </div>
+</div>
+</body>
+
+</html>

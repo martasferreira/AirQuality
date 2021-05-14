@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Spring Boot - Air Quality App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/jqueryScript.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+
+
+</head>
+
+<body>
+<div class="container">
+    <a href="/cacheStats"><input type="button" value="Cache statistics" style="float: right;"></a>
+    <h1 style="padding-top:50px" id="titulo"><strong>Air Quality App</strong></h1>
+    <div class="row col-md-10 " style="align-content: center">
+        <div>
+            <label>Insert city name:</label>
+            <input class="form-control" id="input" type="text" />
+        </div>
+        <table id="resultsTable" class="table table-bordered table-hover table-responsive">
+            <thead>
+            <tr>
+
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Unit</th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            <tr>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+
+$(document).ready(function() {
+
+    $("#input").on("keyup", function() {
+    if(event.which==13){
+        $("#resultsTable").find("tbody").empty();
+        var inputValue = $(this).val().toLowerCase();
+        inputValue = inputValue.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+    return letter.toUpperCase();
+});
+        $.ajax({
+        type : "GET",
+        url : "/get/"+inputValue,
+        success: function(result){
+            $.each(result, function(i, results){
+
+                var resultsRow = '<tr>' +
+
+                                    '<td>' + results.parameter + '</td>' +
+                                    '<td>' + results.value + '</td>' +
+                                    '<td>' + results.unit + '</td>' +
+
+
+                                  '</tr>';
+
+                $('#resultsTable tbody').append(resultsRow);
+
+            });
+
+            $( "#resultsTable tbody tr:odd" ).addClass("row_color");
+
+        },
+        error : function(e) {
+            alert("ERROR ", e);
+            console.log("ERROR ", e);
+        }
+    });
+    };
+    });
+})
+
+</script>
+</body>
+</html>
