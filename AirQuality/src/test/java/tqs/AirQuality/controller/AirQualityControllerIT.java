@@ -48,7 +48,7 @@ public class AirQualityControllerIT {
         // as the external Api has always info for city Leiria ,
         // the list of results will have size 1 ou more ( the results for one city differ by the parameter ( co2, o2, .... but the city is the same )
 
-        mvc.perform(get("/tqs/get/Leiria").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/get/Leiria").contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -68,7 +68,7 @@ public class AirQualityControllerIT {
         // repository is filled when api is called , always only with one instance
 
 
-        mvc.perform(get("/tqs/get/cacheStats").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/get/cacheStats").contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))

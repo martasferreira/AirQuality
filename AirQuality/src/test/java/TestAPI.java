@@ -12,7 +12,7 @@ public class TestAPI {
     @Test
     public void getAirQualityCityInfo_returns200_andExpectedInfo() {
 
-        String uriBase = "http://localhost:8080/tqs/get/Leiria";
+        String uriBase = "http://localhost:8080/get/Leiria";
 
         given()
                 .relaxedHTTPSValidation()
