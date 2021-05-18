@@ -30,7 +30,7 @@ public class TestAPI {
     @Test
     public void getCacheStats_returns200_andExpectedInfo() {
 
-        String uriBase = "http://localhost:8080/tqs/get/cacheStats";
+        String uriBase = "http://localhost:8080/get/cacheStats";
 
         given()
                 .relaxedHTTPSValidation()
@@ -50,7 +50,7 @@ public class TestAPI {
     @Test
     public void getAirQualityPage_returns200() {
 
-        String uriBase = "http://localhost:8080/tqs/airQualityPT";
+        String uriBase = "http://localhost:8080/airQuality";
 
         given()
                 .relaxedHTTPSValidation()
@@ -65,7 +65,7 @@ public class TestAPI {
     @Test
     public void getCacheStatsPage_returns200() {
 
-        String uriBase = "http://localhost:8080/tqs/cacheStats";
+        String uriBase = "http://localhost:8080/cacheStats";
 
         given()
                 .relaxedHTTPSValidation()

@@ -48,7 +48,7 @@ public class AirQualityControllerTemplateIT {
         // repository is filled with info when api is called , because there is no create method for this web page ( the info is taken from external api )
 
         ResponseEntity<List<Results>> response = restTemplate
-                .exchange("/tqs/get/Leiria", HttpMethod.GET, null, new ParameterizedTypeReference<List<Results>>() {
+                .exchange("/get/Leiria", HttpMethod.GET, null, new ParameterizedTypeReference<List<Results>>() {
                 });
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -61,7 +61,7 @@ public class AirQualityControllerTemplateIT {
         // repository is filled when api is called
 
         ResponseEntity<CacheStats> response = restTemplate
-                .exchange("/tqs/get/cacheStats", HttpMethod.GET, null, new ParameterizedTypeReference<CacheStats>() {
+                .exchange("/get/cacheStats", HttpMethod.GET, null, new ParameterizedTypeReference<CacheStats>() {
                 });
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

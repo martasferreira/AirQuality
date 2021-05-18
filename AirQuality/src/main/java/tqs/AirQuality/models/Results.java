@@ -25,12 +25,6 @@ public class Results implements Serializable {
 
     private Double value;
 
-    @OneToOne(cascade = {CascadeType.ALL})
-    private Coordinates coordinates;
-
-    @OneToOne(cascade = {CascadeType.ALL})
-    private Date date;
-
     private String unit;
 
     private String country;
@@ -46,8 +40,6 @@ public class Results implements Serializable {
         this.location = location;
         this.parameter = parameter;
         this.value = value;
-        this.coordinates=null;
-        this.date=null;
         this.unit = unit;
         this.country = country;
         this.city = city;

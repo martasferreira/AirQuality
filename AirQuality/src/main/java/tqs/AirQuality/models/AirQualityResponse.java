@@ -21,7 +21,7 @@ public class AirQualityResponse implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Meta meta;
+
 
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Results> results= new ArrayList<>();
